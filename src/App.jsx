@@ -42,11 +42,22 @@ const App = () => {
     console.log(id);
   };
 
+  const handleToggleComplete = (id) => {
+    setItems((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, done: !item.done } : item
+      )
+    );
+  };
   return (
     <div className="app">
       <h1>Grocery List</h1>
       <ItemInput onAddItem={handleAddItem} />
-      <ItemList items={items} onDelete={handleDeleteItem} />
+      <ItemList
+        items={items}
+        onDelete={handleDeleteItem}
+        onDone={handleToggleComplete}
+      />
     </div>
   );
 };
