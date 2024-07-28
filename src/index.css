@@ -142,7 +142,6 @@ ul {
 .complete {
   text-decoration: line-through;
   text-decoration-color: green;
-  font-size: 20px;
   color: grey;
 }
 
@@ -160,3 +159,7 @@ ul {
     width: 200px;
   }
 }
+
+
+
+

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const ItemInput = ({ onAddItem }) => {
   const [newItemInput, setNewItemInput] = useState("");
-
+  const [date, setDate] = useState(new Date().getDate());
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -10,12 +10,13 @@ const ItemInput = ({ onAddItem }) => {
     const newItem = {
       id,
       task: newItemInput, // Change the property name to something more descriptive
-      dueDate: "2013-05-15",
+      dueDate: date,
       done: true,
     };
 
     onAddItem(newItem);
     setNewItemInput("");
+    setDate(new Date().getDate());
   };
 
   return (
