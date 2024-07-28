@@ -1,17 +1,15 @@
-import Button from "./Button"
+import Button from "./Button";
 
-const Item = ({ item }) => {
+const Item = ({ item, onDelete }) => {
   return (
     <li className="item">
-      {/* <div> */}
       <h3>{item.task}</h3>
       <span>{item.dueDate}</span>
-      {/* </div> */}
-
       <Button>✅</Button>
-      <Button>🗑</Button>
+      <Button onClick={() => onDelete(item.id)}>🗑</Button>{" "}
+      {/* Pass a function reference */}
     </li>
   );
 };
 
-export default Item
+export default Item;

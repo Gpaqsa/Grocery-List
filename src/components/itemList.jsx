@@ -1,11 +1,10 @@
 import Item from "./Item";
 
-const itemList = ({ items }) => {
-  console.log(items);
+const itemList = ({ items, onDelete }) => {
   return (
     <ul>
       {items.map((item) => (
-        <Item key={item.id} item={item} />
+        <Item key={item.id} item={item} onDelete={onDelete} />
       ))}
     </ul>
   );

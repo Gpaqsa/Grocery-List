@@ -29,7 +29,7 @@ const initialGrocery = [
   },
 ];
 
-console.log(initialGrocery);
+// console.log(initialGrocery);
 const App = () => {
   const [items, setItems] = useState(initialGrocery);
 
@@ -37,11 +37,16 @@ const App = () => {
     setItems((items) => [...items, newItem]);
   };
 
+  const handleDeleteItem = (id) => {
+    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+    console.log(id);
+  };
+
   return (
     <div className="app">
       <h1>Grocery List</h1>
       <ItemInput onAddItem={handleAddItem} />
-      <ItemList items={items} />
+      <ItemList items={items} onDelete={handleDeleteItem} />
     </div>
   );
 };
