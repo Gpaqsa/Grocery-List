@@ -1,5 +1,5 @@
-import { useState } from "react";
-import ItemInput from "./components/ItemInput"
+import { useState, useEffect } from "react";
+import ItemInput from "./components/ItemInput";
 import ItemList from "./components/itemList.jsx";
 
 const initialGrocery = [
@@ -31,7 +31,14 @@ const initialGrocery = [
 
 // console.log(initialGrocery);
 const App = () => {
-  const [items, setItems] = useState(initialGrocery);
+  const [items, setItems] = useState(() => {
+    const savedItems = localStorage.getItem("items");
+    return savedItems ? JSON.parse(savedItems) : initialGrocery;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(items));
+  }, [items]);
 
   const handleAddItem = (newItem) => {
     setItems((items) => [...items, newItem]);
@@ -62,4 +69,4 @@ const App = () => {
   );
 };
 
-export default App
+export default App;
