@@ -46,7 +46,6 @@ const App = () => {
 
   const handleDeleteItem = (id) => {
     setItems((prevItems) => prevItems.filter((item) => item.id !== id));
-    console.log(id);
   };
 
   const handleToggleComplete = (id) => {
@@ -56,6 +55,7 @@ const App = () => {
       )
     );
   };
+
   return (
     <div className="app">
       <h1>Grocery List</h1>
